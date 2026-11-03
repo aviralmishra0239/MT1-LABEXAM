@@ -4,35 +4,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Task Management</title>
+    <title>Employee Task Management Dashboard</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            text-align: center;
-            padding: 50px;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
         }
 
         h1 {
-            color: #2563eb;
+            text-align: center;
+            color: #1e3a8a;
         }
 
-        p {
-            font-size: 18px;
+        h2 {
+            color: #334155;
+        }
+
+        input, select {
+            padding: 12px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 12px 18px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 3px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 13px;
+            text-align: center;
+        }
+
+        th {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .delete {
+            background: #dc2626;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Employee Task Management System</h1>
+<div class="container">
 
-    <p>Welcome to the Employee Task Management Application.</p>
+    <h1>Employee Task Management Dashboard</h1>
 
-    <h2>Manage Employee Tasks Easily</h2>
+    <h2>Add New Task</h2>
 
-    <p>Built using Node.js, HTTP Module and FS Module.</p>
+    <input type="text" id="taskName" placeholder="Enter Task Name">
+
+    <input type="text" id="assignedTo" placeholder="Employee Name">
+
+    <select id="status">
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+    </select>
+
+    <select id="priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select>
+
+    <button onclick="addTask()">Add Task</button>
+
+    <h2>All Employee Tasks</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Task Name</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="taskList"></tbody>
+    </table>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
